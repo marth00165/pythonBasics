@@ -3,16 +3,16 @@
 
 Learning Python
 
-###Lesson 1 - Hello World
+### Lesson 1 - Hello World
 
 notes - Using "print" is similar to "puts" in ruby.
 
-###Lesson 2 - Build A Shape
+### Lesson 2 - Build A Shape
 
 notes - Python reads its scripts line by line!
 
 
-###Lesson 3 - Variables
+### Lesson 3 - Variables
 
 notes -
 Theres 3 Major types of data in Python
@@ -34,7 +34,7 @@ mymagic = "Magic"
 mymagic = "New Magic" Now the variable mymagic will out put "New Magic" from here on out.
 
 
-###Lesson 4 - Strings
+### Lesson 4 - Strings
 
 
 notes -
