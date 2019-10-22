@@ -38,9 +38,15 @@ mymagic = "New Magic" Now the variable mymagic will out put "New Magic" from her
 
 
 notes -
+
 Strings are indexed starting at 0
+
 you can use \n to make a new line
+
 you can use \\ to put a backspace
+
 you can use \" to put a quotation
+
 You can chain multiple functions together like var.upper().isupper()
+
 more python string methods: https://www.programiz.com/python-programming/methods/string
