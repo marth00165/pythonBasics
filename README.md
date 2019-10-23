@@ -3,6 +3,8 @@
 
 Learning Python
 
+This Course Goes along with https://www.youtube.com/watch?v=rfscVS0vtbw !
+
 ### Lesson 1 - Hello World
 
 notes - Using "print" is similar to "puts" in ruby.
@@ -50,3 +52,21 @@ you can use \" to put a quotation
 You can chain multiple functions together like var.upper().isupper()
 
 more python string methods: https://www.programiz.com/python-programming/methods/string
+
+### Lesson 5 - Numbers
+
+notes -
+
+Overall numbers work the same as in all programming languages
+
+Numbers can be whole or decimal,
+
+You can convert numbers to strings using the str() function
+
+You can handle math using the regular operator signs
+
+You can set the order of operations using ()
+
+There are many math functions that you can use on numbers such as pow, max
+
+find a list of them here: https://docs.python.org/3/library/math.html
