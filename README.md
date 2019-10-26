@@ -70,3 +70,16 @@ You can set the order of operations using ()
 There are many math functions that you can use on numbers such as pow, max
 
 find a list of them here: https://docs.python.org/3/library/math.html
+
+### Lesson 6 - User Input
+
+notes - 
+
+Getting user info is very simple, you can use declare a variable and set it equal to 
+the input() function and enter a prop,
+then simply use the variable as you do all the other variables..
+run the code to understand better.
+
+to convert an input into a number you have to use the int() or float() function on the variable
+
+

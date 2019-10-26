@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f8e94927-f974-40b9-a2c2-50b4a56e952c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson5.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson6.py" beforeDir="false" afterPath="$PROJECT_DIR$/lesson6.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +25,7 @@
   <component name="ProjectId" id="1SX3zXtutD9eYc92yHgXGHZobLZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -39,7 +41,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.lesson5">
+  <component name="RunManager" selected="Python.lesson6">
     <configuration name="lesson2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="hello_world" />
       <option name="INTERPRETER_OPTIONS" value="" />
