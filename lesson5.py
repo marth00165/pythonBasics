@@ -1,3 +1,5 @@
+from math import *  # You can import functions from libraries this enables the math library
+
 print("You can print numbers")
 print(2)  # You Can Print numbers
 print("")
