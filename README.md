@@ -83,3 +83,10 @@ run the code to understand better.
 to convert an input into a number you have to use the int() or float() function on the variable
 
 
+### Lesson 7 - Lists
+
+notes - 
+
+
+
+
