@@ -94,6 +94,13 @@ they are stored as ["a", 1, variable]
 it can be a list of anything, it can be a list of lists etc,
 the join function concacts them together,
 
+you can select specific ranges by using the index numbers which start at 0
+
+list[1:3], will only print out elements between the second and 4th element
+
+### Lesson 8 -
+
+notes -
 
 
 
