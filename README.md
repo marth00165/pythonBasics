@@ -87,6 +87,13 @@ to convert an input into a number you have to use the int() or float() function 
 
 notes - 
 
+Lists are a structure inside of python to store multiple data values, these are basically arrays in most other languages,
+
+they are stored as ["a", 1, variable]
+
+it can be a list of anything, it can be a list of lists etc,
+the join function concacts them together,
+
 
 
 
