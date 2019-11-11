@@ -98,9 +98,14 @@ you can select specific ranges by using the index numbers which start at 0
 
 list[1:3], will only print out elements between the second and 4th element
 
-### Lesson 8 -
+### Lesson 8 - List Functions
 
 notes -
+
+We did some functions earlier with the "join()" but
+in this lesson we will be diving further into list functions
+
+
 
 
 
