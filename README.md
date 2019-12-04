@@ -105,6 +105,10 @@ notes -
 We did some functions earlier with the "join()" but
 in this lesson we will be diving further into list functions
 
+### Lesson 9 - Tuples
+
+notes - 
+
 
 
 
