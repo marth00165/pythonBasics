@@ -14,4 +14,6 @@ print("")
 stuff[1] = "bananas"
 print("")
 print(stuff)
+print(len(whatisList))
+
 # now bananas will replace apples
