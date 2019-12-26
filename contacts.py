@@ -24,9 +24,10 @@ class Trie:
             return False
 
 
-dictionary = Trie()
+contacts = Trie()
 
-dictionary.add("Hi")
-dictionary.add("Hello")
-print(dictionary.find("Hi"))
-print(dictionary.find("Bye"))
+contacts.add("Rohit")
+contacts.add("Marth")
+print(contacts.find("Rohit"))
+print(contacts.find("James"))
+
