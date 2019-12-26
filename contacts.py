@@ -1,33 +1,37 @@
+from collections import defaultdict
+
+
+class Node(object):
+    def __init__(self):
+        self.children = defaultdict(Node)
+        self.num_usage = 0
+
 
 class Trie:
-    head = {}
+    def __init__(self):
+        self.root = Node()
 
     def add(self, word):
-        cur = self.head
-
-        for ch in word:
-            if ch not in cur:
-                cur[ch] = {}
-            cur = cur[ch]
-        cur['*'] = True
+        node = self.root
+        for char in word:
+            node = node.children[char]
+            node.num_usage += 1
 
     def find(self, word):
-        cur = self.head
-
-        for ch in word:
-            if ch not in cur:
-                return False
-            cur = cur[ch]
-        if '*' in cur:
-            return True
-        else:
-            return False
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                return 0
+            node = node.children[char]
+        return node.num_usage
 
 
 contacts = Trie()
 
 contacts.add("Rohit")
+contacts.add("Ronald")
+contacts.add("Ronald")
 contacts.add("Marth")
-print(contacts.find("Rohit"))
-print(contacts.find("James"))
+print(contacts.find("Ro"))
+print(contacts.find("J"))
 
