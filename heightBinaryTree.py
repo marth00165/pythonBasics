@@ -30,7 +30,7 @@ insert(r, Node(2))
 insert(r, Node(3))
 insert(r, Node(4))
 insert(r, Node(5))
-insert(r, Node(6))
+# insert(r, Node(6))
 
 
 def height(root):
