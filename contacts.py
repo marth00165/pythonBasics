@@ -29,7 +29,7 @@ class Trie2:
 class Trie:
     def __init__(self):
         self.root = {}
-        self.total = []
+        self.m = {}
 
     def add(self, word: str) -> None:
         node = self.root
@@ -38,6 +38,11 @@ class Trie:
                 node[char] = {}
             node = node[char]
         node['*'] = True
+        for i in range(1, len(word) + 1):
+            if word[:i] in self.m:
+                self.m[word[:i]] += 1
+            else:
+                self.m[word[:i]] = 1
 
     def find(self, word: str) -> bool:
         node = self.root
@@ -60,8 +65,8 @@ class Trie:
 
         return True
 
-    def total_stars(self, word):
-        return self.root.get(word) or 0
+    def total_words_with_ss(self, word):
+        return self.m.get(word) or 0
 
 
 contacts = Trie()
@@ -80,7 +85,7 @@ contacts.add("Rohald")
 contacts.add("Ropon")
 print(contacts.find("Rohit"))  # finds if contact exists
 print(contacts.starts_with("Roh"))  # this finds if there is a contact starts with substring
-print(contacts.total_stars("Hac"))
+print(contacts.total_words_with_ss("Hac"))
 # print(contacts.total_stars("Hak"))
 # print(contacts.root)
 
