@@ -60,10 +60,8 @@ class Trie:
 
         return True
 
-    # def total_stars(self, word):
-    #     self.starts_with(word)
-    #     print(self.total)
-    #     return max(self.total)
+    def total_stars(self, word):
+        return self.root.get(word) or 0
 
 
 contacts = Trie()
@@ -82,7 +80,7 @@ contacts.add("Rohald")
 contacts.add("Ropon")
 print(contacts.find("Rohit"))  # finds if contact exists
 print(contacts.starts_with("Roh"))  # this finds if there is a contact starts with substring
-# print(contacts.total_stars("Hac"))
+print(contacts.total_stars("Hac"))
 # print(contacts.total_stars("Hak"))
 # print(contacts.root)
 
