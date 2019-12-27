@@ -30,7 +30,7 @@ contacts = Trie()
 
 contacts.add("Rohit")
 contacts.add("Ronald")
-contacts.add("Ronald")
+contacts.add("Robert")
 contacts.add("Marth")
 print(contacts.find("Ro"))
 print(contacts.find("J"))
