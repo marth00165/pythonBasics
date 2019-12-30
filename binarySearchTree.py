@@ -30,8 +30,6 @@ def insert_data(tree):
 class BST:
     def __init__(self):
         self.root = None
-        self.left = None
-        self.right = None
 
     def insert(self, data):
         if self.root is None:
