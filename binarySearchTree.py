@@ -10,17 +10,17 @@ def build_tree():
 
     if build == 'yes':
         tree = BST()
-        yesno = int(input('Insert more data? 1: yes, 0: no\n'))
-        tree = insert_data(tree)
+        yesno = int(input('Insert more value? 1: yes, 0: no\n'))
+        tree = insert_value(tree)
         while yesno == 1:
             tree.printTree()
-            yesno = int(input('Insert more data? 1: yes, 0: no\n'))
-            tree = insert_data(tree)
+            yesno = int(input('Insert more value? 1: yes, 0: no\n'))
+            tree = insert_value(tree)
     tree.printTree()
     print('thank you for using the BST constructor')
 
 
-def insert_data(tree):
+def insert_value(tree):
     x = input('Enter Number to insert\n')
     tree.insert(x)
     print('inserted')
@@ -31,42 +31,42 @@ class BST:
     def __init__(self):
         self.root = None
 
-    def insert(self, data):
+    def insert(self, value):
         if self.root is None:
-            self.root = Node(data)
+            self.root = Node(value)
         else:
-            self._insert(data, self.root)
+            self._insert(value, self.root)
 
-    def _insert(self, data, cur_node):
-        if data < cur_node.data:
+    def _insert(self, value, cur_node):
+        if value < cur_node.value:
             if cur_node.left is None:
-                cur_node.left = Node(data)
+                cur_node.left = Node(value)
             else:
-                self._insert(data, cur_node.left)
-        elif data > cur_node.data:
+                self._insert(value, cur_node.left)
+        elif value > cur_node.value:
             if cur_node.right is None:
-                cur_node.right = Node(data)
+                cur_node.right = Node(value)
             else:
-                self._insert(data, cur_node.right)
+                self._insert(value, cur_node.right)
         else:
             print("Value already exists in tree.")
 
-    def find(self, data):
+    def find(self, value):
         if self.root:
-            is_found = self._find(data, self.root)
+            is_found = self._find(value, self.root)
             if is_found:
                 return True
             return False
         else:
             return None
 
-    def _find(self, data, cur_node):
-        if data == cur_node.data:
+    def _find(self, value, cur_node):
+        if value == cur_node.value:
             return True
-        elif data > cur_node.data and cur_node.right:
-            return self._find(data, cur_node.right)
-        elif data < cur_node.data and cur_node.left:
-            return self._find(data, cur_node.left)
+        elif value > cur_node.value and cur_node.right:
+            return self._find(value, cur_node.right)
+        elif value < cur_node.value and cur_node.left:
+            return self._find(value, cur_node.left)
         else:
             return False
 
@@ -83,7 +83,7 @@ class BST:
             while count > 0:
                 node = buf.pop(0)
                 if node:
-                    output.append(node.data)
+                    output.append(node.value)
                     count -= 1
                 else:
                     output.append('$')
