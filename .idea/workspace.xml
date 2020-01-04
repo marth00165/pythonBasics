@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8e94927-f974-40b9-a2c2-50b4a56e952c" name="Default Changelist" comment="" />
+    <list default="true" id="f8e94927-f974-40b9-a2c2-50b4a56e952c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topKfreqWords.py" beforeDir="false" afterPath="$PROJECT_DIR$/topKfreqWords.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,11 +188,11 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="317" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1577955620628">
+    <state x="317" y="248" key="com.intellij.ide.util.TipDialog" timestamp="1578126943022">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state x="317" y="232" key="com.intellij.ide.util.TipDialog/0.0.1280.800@0.0.1280.800" timestamp="1576799821148" />
-    <state x="317" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1577955620628" />
+    <state x="317" y="248" key="com.intellij.ide.util.TipDialog/0.23.1280.777@0.23.1280.777" timestamp="1578126943022" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1577608538289">
       <screen x="0" y="23" width="1280" height="777" />
     </state>
