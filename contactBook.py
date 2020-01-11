@@ -29,14 +29,11 @@ class ContactBook:
 
 
 rohitsContacts = ContactBook()
-
 rohitsContacts.add("Hack")
 rohitsContacts.add("Hackerrank")
 rohitsContacts.add("Hackanator")
 rohitsContacts.add("HaK")
-print(rohitsContacts.find_substrings("Hac"))
+
+print(rohitsContacts.find_contacts_with_ss("H"))
+print(rohitsContacts.find_contacts_with_ss("Ha"))
 print(rohitsContacts.find_contacts_with_ss("Hac"))
-rohitsContacts.add("Haku")
-rohitsContacts.add("Hakunamon")
-rohitsContacts.add("Hakulator")
-print(rohitsContacts.find_contacts_with_ss("Hak"))

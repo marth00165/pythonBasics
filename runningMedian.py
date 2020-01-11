@@ -1,36 +1,50 @@
-import math
+import heapq
 
 
-def medianFinder(a1, a):
-    a.sort()
-    if len(a) == 1:
-        return float(a1[0])
-    elif len(a) == 2:
-        median = float((a1[0] + a1[1]) / 2)
-        return median
-    elif len(a) > 2 and len(a) % 2 == 0:
-        half = math.floor(len(a) / 2)
-        return (a[half] + a[half - 1]) / 2
-    elif len(a) > 2 and len(a) % 2 != 0:
-        half = math.floor(len(a) / 2)
-        return float(a[half])
+def median(minheap, maxheap):
+    l1 = len(maxheap)
+    l2 = len(minheap)
+    total_length = l1 + l2
+    if total_length % 2 == 0:
+        top1 = -maxheap[0]
+        top2 = minheap[0]
+        return (top1 + top2) / 2.0
     else:
-        return
+        if l1 > l2:
+            return -maxheap[0]
+        else:
+            return minheap[0]
 
 
 def runningMedian(a):
     medians = []
-    length = len(a)
-    z = 0
-    while z < length + 1:
-        newArr = a[:z]
-        medianNumber = medianFinder(a, newArr)
-        if medianNumber:
-            medians.append(medianNumber)
-        z += 1
+    minheap = []
+    maxheap = []
+
+    for num in a:
+        if len(maxheap) == 0 or num < -maxheap[0]:
+            heapq.heappush(maxheap, -num)
+            print("maxheap: ", maxheap)
+        else:
+            heapq.heappush(minheap, num)
+            print("minheap: ", minheap)
+
+        l1 = len(maxheap)
+        l2 = len(minheap)
+        if l1 - l2 > 1:
+            top = heapq.heappop(maxheap)
+            heapq.heappush(minheap, -top)
+            print("minheap: ", minheap)
+        elif l2 - l1 > 1:
+            top = heapq.heappop(minheap)
+            heapq.heappush(maxheap, -top)
+            print("maxheap: ", maxheap)
+
+        medians.append(median(minheap, maxheap))
+
     return medians
 
 
-jawn = [87592, 39913, 29754, 7341, 13823, 11277, 38699, 48439, 97628, 7295]
+jawn = [1, 2, 3, 4]
 
 print(runningMedian(jawn))
