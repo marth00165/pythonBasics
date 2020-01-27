@@ -25,7 +25,9 @@ class LRUCache(object):
         obj[key] = value
 
         if len(self.cacheObjects) == self.capacity:
-            self.cacheValue[self.cacheObjects[0][key]] = -1
+            item = self.cacheObjects[0]
+            for key in item:
+                self.cacheValue[key] = -1
             self.cacheObjects.remove(self.cacheObjects[0])
             self.cacheObjects.append(obj)
 
