@@ -36,6 +36,8 @@ class LRUCache(object):
 cache = LRUCache(2)
 
 cache.put(1, 1)
-cache.put(2, 2)
-
-print(cache.get(1))
+cache.put(2, 1)
+cache.get(1)
+cache.get(2)
+cache.put(3, 1)
+print(cache.get(2))
