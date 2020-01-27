@@ -40,11 +40,10 @@ def runningMedian(a):
             heapq.heappush(maxheap, -top)
             print("maxheap: ", maxheap)
 
-        medians.append(median(minheap, maxheap))
-
-    return medians
+    return median(minheap, maxheap)
 
 
-jawn = [1, 2, 3, 4]
+
+jawn = [1, 2, 3]
 
 print(runningMedian(jawn))
