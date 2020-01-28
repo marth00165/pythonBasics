@@ -14,15 +14,14 @@ class LRUCache(object):
         for item in self.cacheObjects:
             for item_key, item_value in item.items():
                 if item_value == value and item_key == key:
-                self.cacheObjects.remove(item)
-                self.cacheObjects.append(item)
+                    self.cacheObjects.remove(item)
+                    self.cacheObjects.append(item)
 
         return [value, self.cacheObjects]
 
     def put(self, key: int, value: int) -> None:
         self.cacheValue[key] = value
-        obj = {}
-        obj[key] = value
+        obj = {key: value}
 
         for item in self.cacheObjects:
             for item_key, item_value in item.items():
@@ -35,10 +34,8 @@ class LRUCache(object):
                 self.cacheValue[item_key] = -1
             self.cacheObjects.remove(self.cacheObjects[0])
             self.cacheObjects.append(obj)
-            print(self.cacheObjects)
         else:
             self.cacheObjects.append(obj)
-            print(self.cacheObjects)
 
         self.cacheValue[key] = value
 
