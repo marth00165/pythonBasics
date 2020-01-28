@@ -1,73 +1,47 @@
-class DLinkedlistNode:
-
-    def __init__(self, key: int, val: int):
-        self.key = key
-        self.val = val
-        self.prev = None
-        self.next = None
-
-    def __str__(self):
-        return "[{}:{}] -->".format(self.key, self.val) + str(self.next)
-
 class LRUCache(object):
 
     def __init__(self, capacity: int):
-
-        self.dummyhead = DLinkedlistNode(0, 0)
-        self.dummytail = DLinkedlistNode(0, 0)
-        self.dummyhead.next = self.dummytail
-        self.dummytail.prev = self.dummyhead
-
         self.capacity = capacity
-
-        self.hashmap = {}
-
-    def __remove_node(self, node: DLinkedlistNode) -> None:
-
-        node.prev.next = node.next
-        node.next.prev = node.prev
-
-        pass
-
-    def __insert_node_to_front(self, node) -> None:
-        node_prev = self.dummyhead
-        node_next = self.dummyhead.next
-        node_prev.next = node
-        node.prev = node_prev
-        node.next = node_next
-        node_next.prev = node
-        return
-
-    def __move_node_to_front(self, node) -> None:
-        self.__remove_node(node)
-        self.__insert_node_to_front(node)
-        return
+        self.cacheValue = {}
+        self.cacheObjects = []
 
     def get(self, key):
-        if key not in self.hashmap: return -1
-        res = self.hashmap[key].val
-        self.__move_node_to_front(self.hashmap[key])
+        value = 0
+        if key in self.cacheValue.keys():
+            value = self.cacheValue[key]
+        else:
+            return -1
 
-        # print("get{}, {}".format(key, str(self.dummyhead)))
-
-        return res
+        print("here")
+        for i in range(len(self.cacheObjects)):
+            item = self.cacheObjects[i]
+            for item_key, item_value in item.items():
+                if item_value == value and item_key == key:
+                    self.cacheObjects.remove(item)
+                    self.cacheObjects.append(item)
+            return [value, self.cacheObjects]
 
     def put(self, key: int, value: int) -> None:
-        if key in self.hashmap:
+        self.cacheValue[key] = value
+        obj = {}
+        obj[key] = value
 
-            node = self.hashmap[key]
-            node.val = value
-            self.__move_node_to_front(node)
+        for i in range(len(self.cacheObjects)):
+            item = self.cacheObjects[i]
 
+            if key in item.keys():
+                self.cacheObjects.remove(self.cacheObjects[i])
+
+        if len(self.cacheObjects) == self.capacity:
+            item = self.cacheObjects[0]
+            for key in item:
+                self.cacheValue[key] = -1
+            self.cacheObjects.remove(self.cacheObjects[0])
+            self.cacheObjects.append(obj)
         else:
+            self.cacheObjects.append(obj)
 
-            node = DLinkedlistNode(key, value)
-            self.hashmap[key] = node
-            self.__insert_node_to_front(node)
-
-            if len(self.hashmap) > self.capacity:
-                del self.hashmap[self.dummytail.prev.key]
-                self.__remove_node(self.dummytail.prev)
+        self.cacheValue[key] = value
 
 
 cache = LRUCache(2)
