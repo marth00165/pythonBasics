@@ -65,6 +65,7 @@ class BinaryTree:
         return traversal
 
     def zig_zag_level_order_print(self, root, traversal):
+        # Zig Zag while in order # Low -> Highest -> Highest -> Low...
         if root is None:
             return
 
