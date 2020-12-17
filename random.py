@@ -1,25 +1,16 @@
-matrix = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                                                                                                             1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+import pandas as pd
+import numpy as np
 
-# [
-# [0,0,0]
-# [0,1,0]
-# [1,1,1]
-# ]
+students = np.array(["Robert", "Mary", "Jane", "Frank"])
 
-m = len(matrix)
-n = len(matrix[0])
-for i, row in enumerate(matrix):
-    for j, cell in enumerate(row):
-        if cell:
-            top = matrix[i-1][j] if i else float('inf')
-            left = matrix[i][j-1] if j else float('inf')
-            matrix[i][j] = min(top, left) + 1
+print(students)
 
-for i in reversed(range(m)):
-    for j in reversed(range(n)):
-        if cell := matrix[i][j]:
-            bottom = matrix[i+1][j] if i < m - 1 else float('inf')
-            right = matrix[i][j+1] if j < n - 1 else float('inf')
-            matrix[i][j] = min(cell, bottom + 1, right + 1)
-print(matrix)
+midterm_grades = [82, 76, 69, 96]
+final_grades = [90, 84, 70, 65]
+
+
+midterm_grades_series = pd.Series(midterm_grades, index=students)
+final_grades_series = pd.Series(final_grades, index=students)
+
+print(midterm_grades_series, "Midterms")
+print(final_grades_series, "Finals")
