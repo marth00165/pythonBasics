@@ -31,7 +31,7 @@ class Solution:
             else:
                 in_deg[c] = 1
 
-        # Keep Track of how many adjacent nodes
+        # if a course or pre requisite has 0 prereqs add to stack (set makes it unique)
         for c, pre in prerequisites:
             if c not in in_deg:
                 s.add(c)
