@@ -2,15 +2,7 @@ from collections import defaultdict
 
 
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-
-        # Edge Case if no prerequisites add all courses in
-        if not prerequisites:
-            res = []
-            for i in range(numCourses):
-                res.append(i)
-
-            return res
+    def findOrder(self, numCourses, prerequisites):
 
         d = defaultdict(list)  # directed graph
         nodes = set()  # nodes
