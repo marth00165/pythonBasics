@@ -48,12 +48,12 @@ class Solution:
             res.append(node)  # Add to response
             visited.add(node)  # Add to visited
 
-            for nei in d[node]:  # Check each adjacent node
-                if nei not in visited:  # If not visited reduce that node's its in_deg by 1
-                    in_deg[nei] -= 1
+            for adj in d[node]:  # Check each adjacent node
+                if adj not in visited:  # If not visited reduce that node's its in_deg by 1
+                    in_deg[adj] -= 1
 
-                    if in_deg[nei] == 0:  # No Prereq's left add to stack
-                        stack.append(nei)
+                    if in_deg[adj] == 0:  # No Prereq's left add to stack
+                        stack.append(adj)
 
         if len(res) == numCourses:  # if all classes are taken its Possible
             return res
