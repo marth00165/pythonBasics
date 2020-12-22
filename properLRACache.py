@@ -1,83 +1,88 @@
-class DLinkedlistNode:
-
+class DLinkedListNode:  # Typical Doubly Linked Node points forward and back
     def __init__(self, key: int, val: int):
         self.key = key
         self.val = val
         self.prev = None
         self.next = None
 
-    def __str__(self):
+    def __str__(self):  # String Method to show as Linked List not needed for algo
         return "[{}:{}] -->".format(self.key, self.val) + str(self.next)
 
-class LRUCache(object):
+
+class LRUCache:
 
     def __init__(self, capacity: int):
+        self.dummyhead = DLinkedListNode(0, 0)  # Create Fake Head as Null
+        self.dummytail = DLinkedListNode(0, 0)  # Create Fake Tail Node as Null
+        self.dummyhead.next = self.dummytail  # Point Head to Tail
+        self.dummytail.prev = self.dummyhead  # Point Tail to Head
 
-        self.dummyhead = DLinkedlistNode(0, 0)
-        self.dummytail = DLinkedlistNode(0, 0)
-        self.dummyhead.next = self.dummytail
-        self.dummytail.prev = self.dummyhead
+        self.capacity = capacity  # Keep Track of max size
 
-        self.capacity = capacity
+        self.map = {}  # Map to check if a value is in the list with a 1:1 look up
 
-        self.hashmap = {}
-
-    def __remove_node(self, node: DLinkedlistNode) -> None:
-
+    def remove_node(self, node: DLinkedListNode) -> None:  # Removes the Node from list
         node.prev.next = node.next
         node.next.prev = node.prev
 
         pass
 
-    def __insert_node_to_front(self, node) -> None:
-        node_prev = self.dummyhead
-        node_next = self.dummyhead.next
-        node_prev.next = node
-        node.prev = node_prev
-        node.next = node_next
-        node_next.prev = node
+    def insert_node_to_front(self, node) -> None:  # Inserts a node to the front
+        node_prev = self.dummyhead  # Fake Head (empty)
+        node_next = self.dummyhead.next  # Old head of list
+        node_prev.next = node  # New head
+        node.prev = node_prev  # Points to fake head (empty)
+        node.next = node_next  # Points to what was old Head
+        node_next.prev = node  # Points back
         return
 
-    def __move_node_to_front(self, node) -> None:
-        self.__remove_node(node)
-        self.__insert_node_to_front(node)
+    # Idea is if a node is used move to the front
+    def move_node_to_front(self, node) -> None:
+        self.remove_node(node)  # Remove it from its old place
+        self.insert_node_to_front(node)  # Move it to the front
         return
 
-    def get(self, key):
-        if key not in self.hashmap: return -1
-        res = self.hashmap[key].val
-        self.__move_node_to_front(self.hashmap[key])
+    def get(self, key: int) -> int:
+        # Here is why i made the map
 
-        # print("get{}, {}".format(key, str(self.dummyhead)))
+        # If the value is in the map then you just get the value if not return -1
 
-        return res
+        if key not in self.map:
+            return -1
+
+        node = self.map[key]  # Get the Node
+
+        self.move_node_to_front(node)  # Move the node to the front
+
+        return node.val  # Give the value back
 
     def put(self, key: int, value: int) -> None:
-        if key in self.hashmap:
 
-            node = self.hashmap[key]
-            node.val = value
-            self.__move_node_to_front(node)
+        # Here I first update the value in the map then move the node to the font
 
+        if key in self.map:
+            node = self.map[key]  # Get the node
+            node.val = value  # Update the Value
+
+            self.move_node_to_front(node)  # Move it to front
         else:
+            # If its not in the map then just make a new node
+            node = DLinkedListNode(key, value)
+            self.map[key] = node  # Update Map
 
-            node = DLinkedlistNode(key, value)
-            self.hashmap[key] = node
-            self.__insert_node_to_front(node)
+            self.insert_node_to_front(node)  # Move new node to the front
 
-            if len(self.hashmap) > self.capacity:
-                del self.hashmap[self.dummytail.prev.key]
-                self.__remove_node(self.dummytail.prev)
+            if len(self.map) > self.capacity:
+                # This is where we check if the list is to big
 
+                # delete the node from the map
+                del self.map[self.dummytail.prev.key]
 
-cache = LRUCache(2)
-
-print(cache.get(2))
-cache.put(2, 6)
-print(cache.get(1))
-cache.put(1, 5)
-cache.put(1, 2)
-print(cache.get(1))
-print(cache.get(2))
+                # Remove Least Recently Used
+                self.remove_node(self.dummytail.prev)
 
 
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
