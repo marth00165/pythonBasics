@@ -5,6 +5,7 @@ def minDepth(self, root) -> int:
     if not root:
         return 0
 
+    # BFS
     q = deque([(root, 1)])
 
     while q:
@@ -13,7 +14,8 @@ def minDepth(self, root) -> int:
         if not node.left and not node.right:
             return depth
 
-        for child in [node.left, node.right]:
-            if not child:
-                continue
-            q.append((child, depth+1))
+        if node.left:
+            q.append((node.left, depth+1))
+
+        if node.right:
+            q.append((node.right, depth+1))

@@ -1,5 +1,5 @@
 def findNumbers(nums):
-    total = 0;
+    total = 0
 
     for number in nums:
         size = len(str(number))
@@ -11,4 +11,3 @@ def findNumbers(nums):
 
 
 print(findNumbers([12, 345, 2, 6, 7896]))
-
